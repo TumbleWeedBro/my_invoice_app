@@ -9,38 +9,43 @@ class InvoicePage extends StatefulWidget {
 
 class _InvoicePageState extends State<InvoicePage> {
   @override
- // TODO: implement widget
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
+  Widget build(BuildContext context)
+   {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.account_balance_wallet_rounded),
-              title: Text("Invoice 1"),
-              subtitle: Text("Invoice 1 description"),
-              trailing: Icon(Icons.arrow_forward_ios),
+          const Text(
+            'Overview',
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          const SizedBox(height: 20),
+          const Text(
+            'Recent Invoices',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          Expanded(
+            child: ListView(
+              children: List.generate(5, (index) => _buildInvoiceTile(index)),
             ),
           ),
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.account_balance_wallet_rounded),
-              title: Text("Invoice 2"),
-              subtitle: Text("Invoice 2 description"),
-              trailing: Icon(Icons.arrow_forward_ios),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.account_balance_wallet_rounded),
-              title: Text("Invoice 3"),
-              subtitle: Text("Invoice 3 description"),
-              trailing: Icon(Icons.arrow_forward_ios),
-            ),
-          ),      
-          
         ],
-      )
+      ),
+    );
+  }
+
+    Widget _buildInvoiceTile(int index) {
+    return Card(
+      child: ListTile(
+        leading: const Icon(Icons.receipt, color: Colors.blue),
+        title: Text('Invoice #${1000 + index}'),
+        subtitle: const Text('Client: ABC Corp - \$500'),
+        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+        onTap: () {},
+      ),
     );
   }
 }

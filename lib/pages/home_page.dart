@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_invoice_app/pages/add_invoice.dart';
 import 'package:my_invoice_app/pages/invoice_page.dart';
 import 'package:my_invoice_app/pages/settings_page.dart';
 
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> {
 
   final List _pages = [
     const DashboardPage(),
-    InvoicePage(),
+    AddInvoice(),
     SettingsPage(),
   ];
 
@@ -73,7 +74,8 @@ class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+   {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -140,4 +142,6 @@ class DashboardPage extends StatelessWidget {
       ),
     );
   }
+
+  
 }
